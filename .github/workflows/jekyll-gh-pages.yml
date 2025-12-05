@@ -1,44 +1,54 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+# Vite 프로젝트를 GitHub Pages에 배포하는 워크플로우
+name: Deploy Vite to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # main 브랜치에 push될 때 실행
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Actions 탭에서 수동으로 실행 가능
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# GitHub Pages 배포를 위한 권한 설정
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# 동시 배포 방지
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
+  # 빌드 작업
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build
+        run: npm run build
+      
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
 
-  # Deployment job
+  # 배포 작업
   deploy:
     environment:
       name: github-pages
