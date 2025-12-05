@@ -1,5 +1,4 @@
 import React from 'react';
-import { ProcessStep } from '../ProcessStep';
 import { ApprovalFlow } from '../ApprovalFlow';
 
 export const SoftwareTab: React.FC = () => {

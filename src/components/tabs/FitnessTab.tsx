@@ -1,5 +1,4 @@
 import React from 'react';
-import { ProcessStep } from '../ProcessStep';
 import { ApprovalFlow } from '../ApprovalFlow';
 import { getPaymentDate, getTodayInfo } from '../../utils/dateUtils';
 
