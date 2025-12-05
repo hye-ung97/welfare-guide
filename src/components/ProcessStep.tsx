@@ -103,7 +103,7 @@ export const ProcessStep: React.FC<ProcessStepProps> = ({
             </div>
             {exampleImage.startsWith('http') || exampleImage.startsWith('/') ? (
               <img
-                src={exampleImage}
+                src={exampleImage.startsWith('/') ? `${import.meta.env.BASE_URL}${exampleImage.slice(1)}` : exampleImage}
                 alt="예시 이미지"
                 style={{
                   width: '100%',

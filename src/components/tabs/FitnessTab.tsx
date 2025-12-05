@@ -167,7 +167,7 @@ export const FitnessTab: React.FC = () => {
                 </span>
               </div>
               <img
-                src="/images/gym.png"
+                src={`${import.meta.env.BASE_URL}images/gym.png`}
                 alt="비용정산신청 예시"
                 style={{
                   width: '100%',
@@ -330,7 +330,7 @@ export const FitnessTab: React.FC = () => {
                 </span>
               </div>
               <img
-                src="/images/pay.png"
+                src={`${import.meta.env.BASE_URL}images/pay.png`}
                 alt="지출결의서 예시"
                 style={{
                   width: '100%',
