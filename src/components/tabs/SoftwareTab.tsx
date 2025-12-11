@@ -36,6 +36,65 @@ export const SoftwareTab: React.FC = () => {
 
         <div
           style={{
+            marginBottom: '24px',
+            padding: '18px 24px',
+            background: 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)',
+            borderRadius: '12px',
+            border: '2px solid #c4b5fd',
+            boxShadow: '0 4px 12px rgba(139, 92, 246, 0.15)',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '14px',
+            }}
+          >
+            <div
+              style={{
+                width: '36px',
+                height: '36px',
+                background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+                boxShadow: '0 2px 8px rgba(139, 92, 246, 0.3)',
+              }}
+            >
+              <span style={{ fontSize: '18px' }}>🛎️</span>
+            </div>
+            <div style={{ flex: 1 }}>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: '15px',
+                  fontWeight: '700',
+                  color: '#5b21b6',
+                  marginBottom: '6px',
+                }}
+              >
+                구매 계정 안내
+              </p>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: '14px',
+                  color: '#6d28d9',
+                  lineHeight: '1.7',
+                }}
+              >
+                소프트웨어는 <strong>개인 계정으로 구매 불가</strong>하며,{' '}
+                <strong>회사 계정으로만 구매 가능</strong>합니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -46,7 +105,7 @@ export const SoftwareTab: React.FC = () => {
             marginBottom: '32px',
           }}
         >
-          {['일반기안 제출', '지출결의서'].map((step, idx) => (
+          {['일반기안 제출', '지출결의서', '총무팀 구매요청'].map((step, idx) => (
             <React.Fragment key={idx}>
               <div
                 style={{
@@ -61,7 +120,7 @@ export const SoftwareTab: React.FC = () => {
               >
                 {step}
               </div>
-              {idx < 1 && (
+              {idx < 2 && (
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M9 6L15 12L9 18"
@@ -213,26 +272,15 @@ export const SoftwareTab: React.FC = () => {
                   예시 첨부
                 </span>
               </div>
-              <div
+              <img
+                src={`${import.meta.env.BASE_URL}images/sw.png`}
+                alt="일반기안 예시"
                 style={{
-                  background: 'white',
+                  width: '100%',
                   borderRadius: '8px',
-                  padding: '40px 20px',
-                  textAlign: 'center',
                   border: '1px solid #e2e8f0',
                 }}
-              >
-                <div style={{ fontSize: '32px', marginBottom: '8px' }}>🖼️</div>
-                <p
-                  style={{
-                    margin: 0,
-                    color: '#94a3b8',
-                    fontSize: '13px',
-                  }}
-                >
-                  일반기안 예시 이미지를 여기에 추가하세요
-                </p>
-              </div>
+              />
             </div>
           </div>
         </div>
@@ -241,7 +289,8 @@ export const SoftwareTab: React.FC = () => {
           style={{
             position: 'relative',
             paddingLeft: '48px',
-            paddingBottom: '8px',
+            paddingBottom: '24px',
+            borderLeft: '2px solid #c4b5fd',
             marginLeft: '16px',
           }}
         >
@@ -278,24 +327,204 @@ export const SoftwareTab: React.FC = () => {
             </h4>
             <div
               style={{
-                padding: '24px',
-                background: 'linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%)',
+                background: 'linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%)',
                 borderRadius: '12px',
-                textAlign: 'center',
-                border: '2px dashed #94a3b8',
+                padding: '16px',
+                marginBottom: '12px',
               }}
             >
-              <div style={{ fontSize: '32px', marginBottom: '12px' }}>🚧</div>
               <p
                 style={{
-                  margin: 0,
-                  color: '#64748b',
+                  margin: '0 0 8px 0',
                   fontSize: '14px',
                   fontWeight: '600',
+                  color: '#5b21b6',
                 }}
               >
-                추후 업데이트 예정
+                📝 필수 작성 항목
               </p>
+              <ul
+                style={{
+                  margin: 0,
+                  paddingLeft: '20px',
+                  color: '#6d28d9',
+                  fontSize: '14px',
+                  lineHeight: '1.8',
+                }}
+              >
+                <li>
+                  <strong>구매항목</strong> - 구매할 소프트웨어 명칭
+                </li>
+                <li>
+                  <strong>구매 금액</strong> - 정확한 금액 기재
+                </li>
+                <li>
+                  <strong>적용 환율</strong> - 적용 환율 기입
+                </li>
+                <li><strong>총무팀에서 구매 예정입니다.</strong> 라는 내용을 반드시 포함해주세요!</li>
+              </ul>
+            </div>
+            <div
+              style={{
+                marginBottom: '12px',
+                padding: '12px 16px',
+                background: '#fef3c7',
+                borderRadius: '8px',
+                borderLeft: '3px solid #f59e0b',
+                fontSize: '13px',
+                color: '#92400e',
+              }}
+            >
+              ⚠️ <strong>구매 금액이 표시되어 있는 화면 캡쳐, 적용 환율 기입</strong> 을 모두 포함해주세요
+            </div>
+            <span
+              style={{
+                fontSize: '12px',
+                color: '#64748b',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px',
+              }}
+            >
+              결재라인
+            </span>
+            <ApprovalFlow
+              steps={[
+                { type: '협조', name: '권은혜' },
+                { type: '동의', name: '신건호' },
+                { type: '동의', name: '이경민' },
+              ]}
+            />
+            <div
+              style={{
+                marginTop: '16px',
+                padding: '16px',
+                background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                borderRadius: '12px',
+                border: '2px dashed #c4b5fd',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  marginBottom: '12px',
+                }}
+              >
+                <span style={{ fontSize: '16px' }}>📎</span>
+                <span
+                  style={{
+                    fontSize: '13px',
+                    fontWeight: '600',
+                    color: '#64748b',
+                  }}
+                >
+                  예시 첨부
+                </span>
+              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}images/sw-cost1.png`}
+                alt="지출결의서 예시"
+                style={{
+                  width: '100%',
+                  borderRadius: '8px',
+                  border: '1px solid #e2e8f0',
+                }}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div
+          style={{
+            position: 'relative',
+            paddingLeft: '48px',
+            paddingBottom: '8px',
+            marginLeft: '16px',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              left: '-17px',
+              top: '0',
+              width: '32px',
+              height: '32px',
+              background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'white',
+              fontWeight: '700',
+              fontSize: '14px',
+              boxShadow: '0 4px 12px rgba(139, 92, 246, 0.3)',
+            }}
+          >
+            3
+          </div>
+          <div style={{ paddingTop: '4px' }}>
+            <h4
+              style={{
+                margin: '0 0 8px 0',
+                fontSize: '16px',
+                fontWeight: '700',
+                color: '#1e293b',
+              }}
+            >
+              총무팀 구매요청
+            </h4>
+            <div
+              style={{
+                marginBottom: '12px',
+                padding: '12px 16px',
+                background: '#dbeafe',
+                borderRadius: '8px',
+                borderLeft: '3px solid #3b82f6',
+                fontSize: '13px',
+                color: '#1e40af',
+              }}
+            >
+              💡 <strong>#day1-총무팀-요청 창구</strong>를 통해서 워크플로 실행
+            </div>
+            <div
+              style={{
+                marginTop: '16px',
+                padding: '16px',
+                background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                borderRadius: '12px',
+                border: '2px dashed #c4b5fd',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  marginBottom: '12px',
+                }}
+              >
+                <span style={{ fontSize: '16px' }}>📎</span>
+                <span
+                  style={{
+                    fontSize: '13px',
+                    fontWeight: '600',
+                    color: '#64748b',
+                  }}
+                >
+                  예시 첨부
+                </span>
+              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}images/sw-request.png`}
+                alt="총무팀 구매요청 예시"
+                style={{
+                  width: '100%',
+                  borderRadius: '8px',
+                  border: '1px solid #e2e8f0',
+                }}
+              />
             </div>
           </div>
         </div>
