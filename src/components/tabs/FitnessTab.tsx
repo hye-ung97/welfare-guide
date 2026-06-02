@@ -126,6 +126,19 @@ export const FitnessTab: React.FC = () => {
             >
               📎 <strong>영수증 첨부</strong> 필수
             </p>
+            <div
+              style={{
+                marginBottom: '12px',
+                padding: '12px 16px',
+                background: '#fffbeb',
+                borderRadius: '8px',
+                borderLeft: '3px solid #f59e0b',
+                fontSize: '13px',
+                color: '#92400e',
+              }}
+            >
+              📅 <strong>사용일:</strong> 영수증에 찍힌 실제 사용일을 입력하세요.
+            </div>
             <span
               style={{
                 fontSize: '12px',
