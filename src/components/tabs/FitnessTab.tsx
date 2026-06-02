@@ -137,7 +137,7 @@ export const FitnessTab: React.FC = () => {
             >
               결재라인
             </span>
-            <ApprovalFlow steps={[{ type: '협조', name: '김태형' }]} />
+            <ApprovalFlow steps={[{ type: '협조', name: '안경수' }]} />
             <div
               style={{
                 marginTop: '16px',

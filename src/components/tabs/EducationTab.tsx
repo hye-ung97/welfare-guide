@@ -155,7 +155,8 @@ export const EducationTab: React.FC<EducationTabProps> = ({
             <ApprovalFlow
               steps={[
                 { type: '동의', name: '신종훈' },
-                { type: '병렬합의', name: '진혜영' },
+                { type: '병렬합의', name: '송기원' },
+                { type: '동의', name: '신건호' },
                 { type: '동의', name: '신해동' },
               ]}
             />
@@ -201,7 +202,7 @@ export const EducationTab: React.FC<EducationTabProps> = ({
             >
               결재라인
             </span>
-            <ApprovalFlow steps={[{ type: '협조', name: '김태형' }]} />
+            <ApprovalFlow steps={[{ type: '협조', name: '안경수' }]} />
           </div>
         </ProcessStep>
 
